@@ -1,7 +1,6 @@
-DROP TABLE STUDENT;
+DROP TABLE ENROLLMENT;
+DROP TABLE COURSE;
 
-CREATE TABLE STUDENT(roll_no INT AUTO_INCREMENT  PRIMARY KEY,name varchar(50), dept varchar(25));
+CREATE TABLE ENROLLMENT(id int  AUTO_INCREMENT  PRIMARY KEY,name varchar(100));
 
-INSERT INTO STUDENT(name ,dept ) VALUES('Sam','Computer');
-INSERT INTO STUDENT(name ,dept ) VALUES('Robert','Electrical');
-INSERT INTO STUDENT(name ,dept ) VALUES('Ram','Civil');
+CREATE TABLE COURSE(cid int AUTO_INCREMENT primary key,coursename varchar(100),id int,FOREIGN KEY (id) REFERENCES ENROLLMENT(id));

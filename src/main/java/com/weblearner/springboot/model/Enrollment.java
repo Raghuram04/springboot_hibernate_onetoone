@@ -32,7 +32,7 @@ public class Enrollment implements Serializable {
 	@Column(name = "name")
 	private String name;
 
-	@OneToMany(mappedBy = "enrollment", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "enrollment", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Course> course;
 
 	public int getId() {

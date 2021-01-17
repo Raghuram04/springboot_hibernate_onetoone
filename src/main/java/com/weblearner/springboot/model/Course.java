@@ -25,7 +25,7 @@ public class Course implements Serializable {
 	@Column(name = "coursename")
 	private String coursename;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id", nullable = false)
     private Enrollment enrollment;
 

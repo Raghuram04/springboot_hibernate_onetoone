@@ -13,15 +13,15 @@ import com.weblearner.springboot.model.Course;
 import com.weblearner.springboot.EnrollmentRepositry;
 import com.weblearner.springboot.CourseRepository;
 
-
 @SpringBootApplication
 public class Runner implements CommandLineRunner {
 
 	@Autowired
 	private EnrollmentRepositry enrollRepo;
-	
+
 	@Autowired
 	private CourseRepository courseRepo;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(Runner.class, args);
@@ -35,29 +35,28 @@ public class Runner implements CommandLineRunner {
 		Course course1 = new Course();
 		course1.setCoursename("CSE");
 		course1.setEnrollment(enr);
-		
+
 		Course course2 = new Course();
 		course2.setCoursename("ECE");
 		course2.setEnrollment(enr);
-		
+
 		List<Course> courseLst = new ArrayList<Course>();
 		courseLst.add(course2);
 		courseLst.add(course1);
 		enr.setCourse(courseLst);
-		
+
 		enrollRepo.save(enr);
-		
+
 		System.out.println("FROM Course Repo");
-		courseRepo.findAll().forEach(s ->{
+		courseRepo.findAll().forEach(s -> {
 			System.out.println(s.getEnrollment().getName());
 		});
-		
-		
+
 		System.out.println("FROM Enrollment Repo");
-		enrollRepo.findAll().forEach(s ->{
+		enrollRepo.findAll().forEach(s -> {
 			System.out.println(s.getCourse().size());
 		});
-		
+
 		
 	}
 

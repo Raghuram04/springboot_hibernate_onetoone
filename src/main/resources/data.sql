@@ -1,6 +1,8 @@
 DROP TABLE EMPLOYEE;
 DROP TABLE DEPARTMENT;
+DROP SEQUENCE mysequence;
 
+CREATE SEQUENCE mysequence START WITH 1000   INCREMENT BY 1   MINVALUE 1000;
 CREATE TABLE DEPARTMENT(deptid int AUTO_INCREMENT primary key,deptname varchar(100));
-CREATE TABLE EMPLOYEE(id int  AUTO_INCREMENT  PRIMARY KEY,name varchar(100),gender varchar(7),deptid int,FOREIGN KEY (deptid) REFERENCES DEPARTMENT(deptid));
+CREATE TABLE EMPLOYEE(id int PRIMARY KEY,name varchar(100),gender varchar(7),deptid int,FOREIGN KEY (deptid) REFERENCES DEPARTMENT(deptid));
 
